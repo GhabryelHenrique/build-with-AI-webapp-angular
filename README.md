@@ -1,59 +1,81 @@
-# CreateAgentChat
+# Plataforma de IA Multi-Agente (Frontend - Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+> Esta é a interface de usuário para a Plataforma de IA Multi-Agente. Construída com Angular e utilizando componentes standalone, esta aplicação oferece uma experiência rica e reativa para criar, gerenciar e interagir com agentes de IA personalizados.
 
-## Development server
+O frontend permite que os usuários naveguem entre uma tela de chat dinâmica e uma área de gerenciamento, onde podem definir as personalidades dos agentes de IA que serão consumidos pelo chat.
 
-To start a local development server, run:
+## ✨ Features
 
-```bash
-ng serve
-```
+- **Arquitetura Standalone:** Utiliza a arquitetura mais moderna do Angular para componentes mais simples e independentes.
+- **Interface de Chat Reativa:** UI de chat em tempo real com indicadores de digitação e histórico de mensagens.
+- **Seleção de Agentes Interativa:** Uma grade de cards visualmente atraente permite que o usuário escolha com qual agente conversar.
+- **Gerenciamento de Agentes (CRUD):** Formulário para criar novos agentes e uma página para listar os agentes existentes.
+- **Renderização de Markdown:** As respostas da IA são renderizadas como HTML formatado, permitindo listas, blocos de código, negrito, etc., graças à biblioteca `ngx-markdown`.
+- **Design Responsivo:** Construído com Bootstrap e CSS customizado para uma boa experiência em diferentes tamanhos de tela.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🛠️ Tech Stack
 
-## Code scaffolding
+- **Framework:** [Angular](https://angular.io/)
+- **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
+- **Reatividade:** [RxJS](https://rxjs.dev/)
+- **Estilização:** [Bootstrap](https://getbootstrap.com/) e CSS
+- **Markdown:** [ngx-markdown](https://www.npmjs.com/package/ngx-markdown)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🚀 Como Começar
 
-```bash
-ng generate component component-name
-```
+Siga os passos abaixo para configurar e rodar o projeto localmente.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Pré-requisitos
 
-```bash
-ng generate --help
-```
+- [Node.js](https://nodejs.org/) (versão 18.x ou superior)
+- [NPM](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
+- [Angular CLI](https://angular.io/cli) instalado globalmente (`npm install -g @angular/cli`).
+- **O backend (NestJS) precisa estar rodando** para que a aplicação funcione, pois ela consumirá a API em `http://localhost:3000`.
 
-## Building
+### Instalação
 
-To build the project run:
+1.  Clone o repositório:
+    ```bash
+    git clone <URL_DO_SEU_REPOSITORIO>
+    ```
+2.  Navegue até a pasta do projeto:
+    ```bash
+    cd gemini-angular-chat
+    ```
+3.  Instale as dependências:
+    ```bash
+    npm install
+    ```
 
-```bash
-ng build
-```
+### Configuração
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Para este projeto, a URL da API do backend está definida diretamente nos arquivos de serviço (`src/app/services/`). Para um ambiente de produção, recomenda-se usar os arquivos de ambiente do Angular (`src/environments/`).
 
-## Running unit tests
+- `src/app/services/agent.service.ts` -> `apiUrl = 'http://localhost:3000/agents'`
+- `src/app/services/chat.service.ts` -> `apiUrl = 'http://localhost:3000/agent'`
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Rodando a Aplicação
 
-```bash
-ng test
-```
+- Para iniciar o servidor de desenvolvimento:
+  ```bash
+  ng serve --open
+  ```
+- A aplicação será aberta automaticamente em `http://localhost:4200`.
 
-## Running end-to-end tests
+## 🏗️ Estrutura do Projeto
 
-For end-to-end (e2e) testing, run:
+- **`src/app/components/`**: Contém os principais componentes standalone da aplicação.
+  - `chat/`: A interface principal de chat.
+  - `agent-list/`: A tela que exibe os cards de todos os agentes criados.
+  - `agent-form/`: O formulário para criar um novo agente.
+- **`src/app/services/`**: Contém os serviços que encapsulam a lógica de comunicação com a API do backend.
+  - `chat.service.ts`: Lida com as requisições para o endpoint de chat.
+  - `agent.service.ts`: Lida com o CRUD de agentes.
+- **`src/app/models/`**: Define as interfaces e tipos (ex: `Message`, `Agent`) para garantir a segurança de tipo em toda a aplicação.
 
-```bash
-ng e2e
-```
+## 🔮 Próximos Passos
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [ ] Implementar a interface para as funcionalidades de `UPDATE` e `DELETE` de agentes.
+- [ ] Criar uma tela de login para um sistema de autenticação de usuários.
+- [ ] Melhorar o tratamento de erros na interface, exibindo toasts ou modais amigáveis.
+- [ ] Adicionar um botão "Copiar" aos blocos de código renderizados pelo Markdown.
