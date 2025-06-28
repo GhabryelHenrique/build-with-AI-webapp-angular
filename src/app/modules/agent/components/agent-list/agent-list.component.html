@@ -1,0 +1,16 @@
+<div class="list-container">
+  <div class="header">
+    <h2>Agentes Disponíveis</h2>
+    <a routerLink="/agents/new" class="btn-create">Criar Novo Agente</a>
+  </div>
+  <div class="agent-list mt-5" *ngIf="agents$ | async as agents; else loading">
+    <div *ngFor="let agent of agents" class="agent-card">
+      <h3>{{ agent.name }}</h3>
+      <p>{{ agent.persona.substring(0, 150) }}...</p>
+    </div>
+    <p *ngIf="agents.length === 0">Nenhum agente criado ainda.</p>
+  </div>
+  <ng-template #loading>
+    <p>Carregando agentes...</p>
+  </ng-template>
+</div>

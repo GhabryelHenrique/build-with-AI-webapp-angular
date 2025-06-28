@@ -1,0 +1,65 @@
+<section class="container">
+  <div class="agent-selector-container text-center" *ngIf="!selectedAgentId">
+    <h2 class="title mb-3">Olá! Como posso ajudar hoje?</h2>
+    <h4 class="subtitle mb-5">Selecione um agente para começar</h4>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-xl-3 col-md-4 col-sm-6" *ngFor="let agent of agents">
+        <div
+          class="card agent-card h-100"
+          (click)="selectAgent(agent._id)"
+          [class.selected]="agent._id === selectedAgentId"
+        >
+          <div class="card-body">
+            <h5 class="card-title">{{ agent.name }}</h5>
+            <p class="card-text">{{ agent.persona.substring(0, 80) }}...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="selectedAgentId || agents.length === 0"
+    class="d-flex flex-column justify-content-end h-100"
+  >
+    <div class="d-flex flex-column justify-content-end h-100">
+      <div class="chat-messages mb-3">
+        <div
+          *ngFor="let message of messages"
+          class="message-wrapper"
+          [class.justify-content-end]="message.sender === 'user'"
+        >
+          <div
+            class="card p-3"
+            [ngClass]="{ responseAgent: message.sender === 'bot' }"
+          >
+            <markdown [data]="message.text" class="m-0"></markdown>
+          </div>
+        </div>
+
+        <div *ngIf="isLoading" class="message-wrapper">
+          <div class="card responseAgent p-3">
+            <p class="m-0 typing-indicator">
+              {{ agentName }}
+              está digitando<span>.</span><span>.</span><span>.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <form (ngSubmit)="sendMessage()">
+        <input
+          type="text"
+          class="input-prompt"
+          name="newMessage"
+          placeholder="Digite sua mensagem..."
+          autocomplete="off"
+          [disabled]="isLoading"
+          [(ngModel)]="newMessage"
+        />
+        <button type="submit" style="display: none"></button>
+      </form>
+    </div>
+  </div>
+</section>

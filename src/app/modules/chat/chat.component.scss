@@ -1,0 +1,165 @@
+/* Suas classes adaptadas e combinadas */
+.container {
+  height: 90vh; /* Aumentei um pouco para dar mais espaço */
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+@media (max-width: 1400px) {
+  .container {
+    max-width: 85%;
+  }
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto; /* Permite rolar as mensagens */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.justify-content-end {
+  justify-content: flex-end; /* Alinha as mensagens do usuário à direita */
+}
+
+.card {
+  max-width: 80%; /* Um pouco mais de largura máxima */
+  width: fit-content;
+  border-radius: 24px 4px 24px 24px;
+  background-color: #e9e9e9;
+  justify-self: end; /* Para o seu alinhamento original */
+  word-wrap: break-word; /* Garante que textos longos quebrem a linha */
+}
+
+.responseAgent {
+  border-radius: 4px 24px 24px 24px;
+  justify-self: start; /* Para o seu alinhamento original */
+  background-color: #d8e6ff; /* Cor diferenciada para o agente */
+}
+
+p {
+  line-height: 1.5;
+}
+
+.input-prompt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 1.5rem; /* Aumentei o padding lateral */
+  gap: 4px;
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+  height: 52px; /* Um pouco mais de altura */
+  background: #f0f4f9;
+  border-radius: 28px;
+}
+
+.input-prompt:focus {
+  outline: 1px solid #007bff;
+}
+
+/* Animação do indicador "digitando" */
+.typing-indicator span {
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  20% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+
+/* src/app/components/chat/chat.component.css */
+
+.agent-selector-container {
+  padding: 4rem 2rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-color);
+  /* Gradiente sutil inspirado na imagem */
+  background: linear-gradient(90deg, #4a69bd, #c46bda);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #6c757d;
+}
+
+.agent-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md, 16px);
+  background-color: var(--surface-container-high-color, #e8eef3);
+  box-shadow: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: left;
+}
+
+.agent-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow, 0 4px 6px rgba(0, 0, 0, 0.05));
+  border-color: #c1c9d2;
+}
+
+.agent-card.selected {
+  transform: translateY(-5px);
+  border-color: var(--primary-color, #007bff);
+  box-shadow: 0 0 0 2px var(--primary-color, #007bff), var(--shadow, 0 4px 6px rgba(0, 0, 0, 0.05));
+  background-color: var(--surface-color, #ffffff);
+}
+
+.agent-card .card-title {
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.agent-card .card-text {
+  font-size: 0.9rem;
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+.chat-container-active {
+  /* Garante que o container do chat ocupe a altura correta */
+  height: 90vh;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.card.agent-card.h-100{
+  max-width: 100%;
+}

@@ -1,0 +1,14 @@
+<div class="form-container">
+  <h2>Criar Novo Agente</h2>
+  <form [formGroup]="agentForm" (ngSubmit)="onSubmit()">
+    <div class="form-field mt-4">
+      <label for="name">Nome do Agente:</label>
+      <input id="name" formControlName="name" placeholder="Ex: Vendedor Especialista">
+    </div>
+    <div class="form-field mt-4">
+      <label for="persona">Persona (Instruções do Agente):</label>
+      <textarea id="persona" formControlName="persona" rows="15" placeholder="Você é Alex, um especialista em..."></textarea>
+    </div>
+    <button type="submit" [disabled]="agentForm.invalid">Salvar Agente</button>
+  </form>
+</div>

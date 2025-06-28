@@ -3,18 +3,39 @@
     class="d-flex flex-column justify-content-between flex-shrink-0 bg-light py-4 h-100"
   >
     <ul
-      class="nav nav-pills nav-flush flex-column mb-auto text-center text-center align-items-center h-100"
+      class="nav nav-pills nav-flush flex-column mb-auto text-center text-center align-items-start h-100 gap-1"
     >
-    <img src="image.png" alt="Descrição" width="50%" class="mb-3">
+      <img
+        src="image.png"
+        alt="Descrição"
+        width="30%"
+        class="align-self-center"
+      />
 
-      <p class="d-flex align-items-center gap-2 text-center">
-        <!-- <span class="material-symbols-outlined"> settings </span> Configurações -->
-      </p>
+      <hr class="w-100" />
+
+      <li class="d-flex align-items-start gap-2 text-start px-4 py-2" routerLink="/chat">
+        <span class="material-symbols-outlined" > chat </span> Chat
+      </li>
+
+      <li
+        class="d-flex align-items-start gap-2 text-start px-4 py-2 position-relative"
+        (click)="toggleSubmenu()"
+      >
+        <span class="material-symbols-outlined">robot_2</span> Agents
+      </li>
+
+      <ul class="submenu list-unstyled text-center d-flex flex-column justify-content-start" [class.open]="submenuOpen">
+        <li class="px-5 py-2" routerLink="/agents">Meus Agents</li>
+        <li class="px-5 py-2" routerLink="/agents/new"><p>Criar Agent</p></li>
+      </ul>
     </ul>
 
     <ul
       class="nav nav-pills nav-flush flex-column mb-auto text-center justify-content-end text-center align-items-center h-100"
     >
+      <hr class="w-100" />
+
       <p class="d-flex align-items-center gap-2 text-center">
         <span class="material-symbols-outlined"> settings </span> Configurações
       </p>
