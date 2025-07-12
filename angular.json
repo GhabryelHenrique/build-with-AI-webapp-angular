@@ -47,7 +47,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "5GB",
-                  "maximumError": "1TB"
+                  "maximumError": "10GB"
                 },
                 {
                   "type": "anyComponentStyle",

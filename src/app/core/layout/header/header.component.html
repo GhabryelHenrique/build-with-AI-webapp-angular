@@ -1,17 +1,39 @@
-<header class="p-3 mb-3 border-bottom">
-    <div class="">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+<header class="p-3 mb-3">
+  <div class="container">
+    <div
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+    >
+      <div
+        class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+      >
+        <p>Bem-vindo à minha App!</p>
+      </div>
 
-        <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <p>Bem Vindo!</p>
+      <div class="d-flex flex-row gap-2 text-end align-items-center">
+
+        <div class ="d-flex text-end gap-2 cursor-pointer" (click)="toggleTheme()">
+          <span *ngIf="isDarkMode()" class="material-symbols-outlined" > flare </span>
+          <span *ngIf="!isDarkMode()" class="material-symbols-outlined"> dark_mode </span>
         </div>
 
-        <div class="text-end">
-          <a href="#" class="d-block link-dark text-decoration-none " id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-          </a>
+        <a
+          href="#"
+          class="d-block link-dark text-decoration-none"
+          id="dropdownUser1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://github.com/mdo.png"
+            alt="mdo"
+            width="32"
+            height="32"
+            class="rounded-circle"
+          />
+        </a>
 
-        </div>
+
       </div>
     </div>
-  </header>
+  </div>
+</header>

@@ -1,15 +1,12 @@
 .layout {
-  display: flex;
+display: flex;
 }
 .layout-container {
   width: 100%;
 }
 .main-content {
-  margin-left: 10%;
+  padding: 4rem;
   width: 100%;
-  max-width: 90vw;
-  max-height: 100vh;
-  background: #fafbfc;
-  position: relative;
- top: 7vh;
+  min-height: 100vh;
+  background: var(--background-color);
 }

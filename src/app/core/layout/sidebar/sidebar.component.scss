@@ -1,4 +1,4 @@
-aside{
+aside {
   position: fixed;
   top: 0;
   left: 0;
@@ -6,36 +6,22 @@ aside{
   width: 192px;
   z-index: 1031;
   height: 100vh;
-  background-color: #f8f9fa;
+  background-color: var(--card-background);
+  color: var(--text-color);
+
+  p {
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5rem;
+  }
+
+  p:hover {
+    background-color: var(--hover-color);
+  }
 }
+
 
 li{
   cursor: pointer;
   width: 100%;
-}
-
-li:hover{
-  background-color: #e9ecef;
-}
-
-
-.submenu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .5s ease;
-  background: #f9f9f9;
-  border-radius: 0 0 8px 8px;
-}
-
-.submenu.open {
-  max-height: 100%; /* Ajuste conforme o conteúdo */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  max-width: 100%;
-}
-.submenu li {
-  align-items: start;
-  display: flex;
-  justify-content: start;
-  width: 100%;
-  cursor: pointer;
 }

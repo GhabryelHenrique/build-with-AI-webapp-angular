@@ -4,7 +4,7 @@
     <h4 class="subtitle mb-5">Selecione um agente para começar</h4>
 
     <div class="row g-4 justify-content-center">
-      <div class="col-xl-3 col-md-4 col-sm-6" *ngFor="let agent of agents">
+      <div class="col-xl-4 col-md-4 col-sm-6" *ngFor="let agent of agents">
         <div
           class="card agent-card h-100"
           (click)="selectAgent(agent._id)"

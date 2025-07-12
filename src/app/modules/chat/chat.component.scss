@@ -115,7 +115,7 @@ p {
 .subtitle {
   font-size: 1.25rem;
   font-weight: 400;
-  color: #6c757d;
+  color: var(--text-color);
 }
 
 .agent-card {
@@ -148,8 +148,9 @@ p {
 }
 
 .agent-card .card-text {
+  margin-top: 1rem;
   font-size: 0.9rem;
-  color: #6c757d;
+  color: var(--subtext-color, #6c757d);
   line-height: 1.5;
 }
 

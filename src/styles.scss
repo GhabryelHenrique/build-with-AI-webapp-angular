@@ -58,22 +58,44 @@ html, body { height: 100%; }
 /* Adicione isso ao topo do seu styles.css global */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
+/* 1. Definição das variáveis do Tema Claro (Padrão) */
 :root {
-  --primary-color: #007bff;
-  --text-color: #333;
-  --background-color: #f4f7f9;
-  --surface-color: #ffffff;
-  --surface-container-color: #f0f4f9;
-  --surface-container-high-color: #e8eef3;
-  --border-color: #dee2e6;
-  --border-radius-md: 16px;
-  --border-radius-lg: 28px;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --background-color: #f4f4f4;
+  --hover-color: #e0e0e0;
+  --subtext-color: #a0a0a0;
+  --text-color: #2c2c2c;
+  --primary-color: #3f51b5;
+  --card-background: #ffffff;
+  --card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  /* Transição suave para a troca de tema */
+  transition: background-color 1s ease, color 1s ease;
 }
 
+/* 2. Sobrescrevendo as variáveis para o Tema Escuro */
+body.dark-theme {
+
+  --background-color: #1e1e1e;
+  --text-color: #f4f4f4;
+  --subtext-color: #a0a0a0;
+  --secondary-text-color: #e0e0e0;
+  --hover-color: #7a7a7a;
+
+  --primary-color: #7986cb;
+  --card-background: #2c2c2c;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --surface-container-high-color: #3f3f3f;
+}
+
+/* 3. Estilos globais que usam as variáveis */
 body {
-  margin: 0;
-  font-family: 'Roboto', 'Segoe UI', sans-serif;
-  background-color: #fafbfc;
+  background-color: var(--background-color);
   color: var(--text-color);
+  font-family: sans-serif;
+  margin: 0;
+}
+
+h1,
+h2 {
+  color: var(--primary-color);
 }

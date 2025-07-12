@@ -9,9 +9,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
-  submenuOpen = false;
-
-  toggleSubmenu() {
-    this.submenuOpen = !this.submenuOpen;
-  }
+    navItems = [
+    { name: 'Chat', icon: 'chat', path: 'chat' },
+  ]
 }
